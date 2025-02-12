@@ -5,6 +5,6 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func TestRoutes(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello from test routes")
+func Test(c echo.Context) error {
+	return c.JSON(http.StatusOK, "Hello from server");
 }

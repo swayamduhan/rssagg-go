@@ -1,4 +1,8 @@
 -- name: CreateUser :one
-INSERT INTO users (id, created_at, updated_at, name)
-VALUES ($1, $2, $3, $4)
+INSERT INTO users (id, name)
+VALUES (uuid_generate_v4(), $1)
 RETURNING *;
+
+
+-- name: GetUserByApiKey :one
+SELECT * FROM users WHERE api_key = $1;
