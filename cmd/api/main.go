@@ -28,8 +28,13 @@ func main(){
 	e.Use(middleware.Recover())
 
 	e.GET("/", router.Test)
-	e.GET("/create", router.CreateUser)
 
+	g := e.Group("")
+
+	router.UserRouter(g)
+	router.FeedRouter(g)
+	router.FeedFollowRouter(g)
+	router.PostsRouter(g)
 
 	fmt.Println("Starting server ...")
 	e.Logger.Fatal(e.Start(":" + port))

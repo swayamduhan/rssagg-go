@@ -25,6 +25,15 @@ type FollowedFeed struct {
 	FeedID    pgtype.UUID
 }
 
+type Post struct {
+	ID          pgtype.UUID
+	FeedID      pgtype.UUID
+	Title       string
+	Description pgtype.Text
+	Link        string
+	PublishedAt pgtype.Timestamp
+}
+
 type User struct {
 	ID        pgtype.UUID
 	CreatedAt pgtype.Timestamp
